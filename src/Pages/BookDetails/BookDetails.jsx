@@ -1,5 +1,6 @@
 import React from 'react';
 import { useLoaderData, useParams } from 'react-router';
+import { addToStoredDB } from '../../utility/AddToDB';
 
 const BookDetails = () => {
     const { id } = useParams();
@@ -7,6 +8,11 @@ const BookDetails = () => {
     const data = useLoaderData()
     const oneBook = data.find(book => book.bookId === bookId)
     const { image, bookName } = oneBook;
+
+    const handleRead = () => {
+        addToStoredDB(id)
+    }
+
     return (
         <>
             <div className="w-3/4 mx-auto mb-14 text-center mt-11">
@@ -21,7 +27,7 @@ const BookDetails = () => {
                 </h2>
 
                 <div className="flex justify-center gap-4">
-                    <button className="btn btn-success">Read</button>
+                    <button onClick={() => handleRead(id)} className="btn btn-success">Read</button>
                     <button className="btn btn-warning">WisdList</button>
                 </div>
             </div>
