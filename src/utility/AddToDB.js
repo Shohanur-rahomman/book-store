@@ -1,0 +1,7 @@
+const getStoredBook = () => {
+    
+}
+
+const addToStoredDB = () => {
+    
+}
